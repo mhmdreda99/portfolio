@@ -29,6 +29,12 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Mohamed Reda Ibrahim" }],
   creator: "Mohamed Reda Ibrahim",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/favicon.svg",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
