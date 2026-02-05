@@ -1,0 +1,261 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #030014;
+  --foreground: #ffffff;
+  --primary: #6366f1;
+  --secondary: #8b5cf6;
+  --accent: #06b6d4;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #6366f1 #1a1a2e;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+  border-radius: 4px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glowing text effect */
+.glow-text {
+  text-shadow: 0 0 10px rgba(99, 102, 241, 0.5),
+               0 0 20px rgba(99, 102, 241, 0.3),
+               0 0 30px rgba(99, 102, 241, 0.2);
+}
+
+.glow-text-accent {
+  text-shadow: 0 0 10px rgba(6, 182, 212, 0.5),
+               0 0 20px rgba(6, 182, 212, 0.3),
+               0 0 30px rgba(6, 182, 212, 0.2);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-animated {
+  background: linear-gradient(270deg, #6366f1, #8b5cf6, #06b6d4, #8b5cf6, #6366f1);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient 8s ease infinite;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Card hover effects */
+.card-3d {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card-3d:hover {
+  transform: rotateY(-5deg) rotateX(5deg) scale(1.02);
+}
+
+/* Neon border */
+.neon-border {
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(var(--background), var(--background)) padding-box,
+              linear-gradient(135deg, #6366f1, #8b5cf6, #06b6d4) border-box;
+}
+
+.neon-border-animated {
+  position: relative;
+}
+
+.neon-border-animated::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(270deg, #6366f1, #8b5cf6, #06b6d4, #8b5cf6, #6366f1);
+  background-size: 400% 400%;
+  border-radius: inherit;
+  z-index: -1;
+  animation: gradient 4s ease infinite;
+}
+
+.neon-border-animated::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--background);
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* Floating shapes */
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.3;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Cyber grid background */
+.cyber-grid {
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Particle canvas styles */
+.particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply relative overflow-hidden px-8 py-4 rounded-full font-semibold text-white transition-all duration-300;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-outline {
+  @apply relative px-8 py-4 rounded-full font-semibold transition-all duration-300;
+  background: transparent;
+  border: 2px solid rgba(99, 102, 241, 0.5);
+  color: #fff;
+}
+
+.btn-outline:hover {
+  border-color: #6366f1;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+/* Timeline styles */
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, #6366f1, #8b5cf6, #06b6d4, transparent);
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+/* Skill bar */
+.skill-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4);
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+/* Section styles */
+.section-title {
+  @apply text-4xl md:text-5xl font-bold mb-4;
+}
+
+.section-subtitle {
+  @apply text-gray-400 text-lg md:text-xl max-w-2xl mx-auto;
+}
+
+/* Hide scrollbar for specific elements */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: #fff;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
