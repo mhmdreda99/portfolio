@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 
+const basePath = process.env.NODE_ENV === 'production' ? '/portfolio' : '';
+
 const highlights = [
   {
     icon: (
@@ -138,7 +140,7 @@ export default function About() {
                   <div className='absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full animate-morph' />
                   <div className='absolute inset-2 bg-[#030014] rounded-full overflow-hidden flex items-center justify-center'>
                     <img
-                      src='/file.jpeg'
+                      src={`${basePath}/file.jpeg`}
                       alt='Profile'
                       className='w-full h-full object-cover'
                     />
