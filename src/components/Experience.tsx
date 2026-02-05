@@ -81,6 +81,20 @@ const experiences = [
     technologies: ["React", "Node.js", "REST APIs", "Firebase", "Full-Stack"],
     color: "from-neon-green to-primary",
   },
+  {
+    title: "Embedded Systems Intern",
+    company: "Valeo Gearup",
+    location: "Egypt",
+    period: "4 Months",
+    type: "Internship",
+    description: [
+      "Completed intensive embedded systems internship program",
+      "Worked on automotive embedded software development",
+      "Gained hands-on experience with microcontrollers and embedded C programming",
+    ],
+    technologies: ["Embedded C", "Microcontrollers", "Automotive", "RTOS"],
+    color: "from-blue-500 to-cyan-500",
+  },
 ];
 
 export default function Experience() {
@@ -244,6 +258,12 @@ export default function Experience() {
                 period: "Oct 2018 - Jan 2023",
                 grade: "Grade: A+",
                 icon: "📜",
+              },
+              {
+                degree: "Embedded Systems Track",
+                school: "Information Technology Institute (ITI) - Intake 43",
+                period: "4 Months Intensive Program",
+                icon: "💻",
               },
             ].map((edu, index) => (
               <motion.div
