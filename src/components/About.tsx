@@ -288,6 +288,14 @@ export default function About() {
                 . Previously architected gamification platforms and analytics
                 dashboards for multinational educational organizations.
               </p>
+              <p className='text-gray-400 leading-relaxed'>
+                At E-VAS TEL, I replaced the legacy nDPI engine with a new{' '}
+                <span className='text-primary'>Alpha engine</span> and led a
+                team of{' '}
+                <span className='text-white font-semibold'>3 engineers</span>,
+                driving technical decisions and ensuring high-quality
+                deliverables.
+              </p>
             </div>
 
             {/* Highlights grid */}

@@ -8,6 +8,7 @@ const experiences = [
   {
     title: "Senior Frontend Engineer",
     company: "LovingLoyalty",
+    companyUrl: "https://www.linkedin.com/company/lovingloyalty/",
     location: "Denmark (Remote)",
     period: "Jan 2025 - Present",
     type: "Full-time",
@@ -19,6 +20,22 @@ const experiences = [
     ],
     technologies: ["React", "TypeScript", "Redux", "TailwindCSS", "Cordova"],
     color: "from-primary to-secondary",
+  },
+  {
+    title: "Senior Software Engineer",
+    company: "E-VAS TEL",
+    companyUrl: "https://www.linkedin.com/company/e-vas-tel/",
+    location: "Egypt (Hybrid)",
+    period: "Apr 2024 - Jan 2026",
+    type: "Full-time",
+    description: [
+      "Replaced legacy nDPI engine with a new high-performance Alpha engine for deep packet inspection",
+      "Led a team of 3 engineers, driving technical decisions and ensuring high-quality deliverables",
+      "Developed heuristic-based detection for encrypted QUIC Client Hello packets using IP patterns and packet length analysis",
+      "Created structured technical assessment frameworks for hiring DPI engineering candidates",
+    ],
+    technologies: ["C", "C++", "DPI", "QUIC", "TLS", "Network Security", "Linux"],
+    color: "from-purple-500 to-pink-500",
   },
   {
     title: "Frontend Engineer",
@@ -149,9 +166,20 @@ export default function Experience() {
                           <h3 className="text-xl font-bold text-white mb-1">
                             {exp.title}
                           </h3>
-                          <p className={`text-transparent bg-clip-text bg-gradient-to-r ${exp.color} font-semibold`}>
-                            {exp.company}
-                          </p>
+                          {exp.companyUrl ? (
+                            <a
+                              href={exp.companyUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className={`text-transparent bg-clip-text bg-gradient-to-r ${exp.color} font-semibold hover:opacity-80 transition-opacity`}
+                            >
+                              {exp.company}
+                            </a>
+                          ) : (
+                            <p className={`text-transparent bg-clip-text bg-gradient-to-r ${exp.color} font-semibold`}>
+                              {exp.company}
+                            </p>
+                          )}
                         </div>
                         <div className="text-right">
                           <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-white/10 text-gray-300 mb-2">
