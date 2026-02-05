@@ -221,7 +221,7 @@ export default function Projects() {
         {projects
           .filter((p) => p.featured)
           .slice(2, 3)
-          .map((project, index) => (
+          .map((project) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 50 }}
