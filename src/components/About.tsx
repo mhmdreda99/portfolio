@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
@@ -139,9 +140,12 @@ export default function About() {
                 <div className='relative w-48 h-48 mx-auto mb-8'>
                   <div className='absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full animate-morph' />
                   <div className='absolute inset-2 bg-[#030014] rounded-full overflow-hidden flex items-center justify-center'>
-                    <img
+                    <Image
                       src={`${basePath}/file.jpeg`}
-                      alt='Profile'
+                      alt='Mohamed Reda Ibrahim portrait'
+                      width={192}
+                      height={192}
+                      priority
                       className='w-full h-full object-cover'
                     />
                   </div>
@@ -241,6 +245,8 @@ export default function About() {
                       href={social.href}
                       target='_blank'
                       rel='noopener noreferrer'
+                      aria-label={`${social.name} link`}
+                      title={social.name}
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                       className='w-12 h-12 rounded-full glass flex items-center justify-center text-gray-400 hover:text-primary hover:border-primary/50 transition-colors'
@@ -249,6 +255,7 @@ export default function About() {
                         className='w-5 h-5'
                         fill='currentColor'
                         viewBox='0 0 24 24'
+                        aria-hidden='true'
                       >
                         <path d={social.icon} />
                       </svg>
@@ -288,14 +295,19 @@ export default function About() {
                 . Previously architected gamification platforms and analytics
                 dashboards for multinational educational organizations.
               </p>
-              <p className='text-gray-400 leading-relaxed'>
-                At E-VAS TEL, I replaced the legacy nDPI engine with a new{' '}
-                <span className='text-primary'>Alpha engine</span> and led a
-                team of{' '}
-                <span className='text-white font-semibold'>3 engineers</span>,
-                driving technical decisions and ensuring high-quality
-                deliverables.
-              </p>
+            </div>
+
+            <div className='flex flex-wrap gap-4'>
+              <a
+                className='btn-primary'
+                href={`${basePath}/cv/Mohamed-RedaResume..pdf`}
+                download='Mohamed-Reda-Resume.pdf'
+              >
+                <span>Download CV</span>
+              </a>
+              <a className='btn-outline' href='mailto:mhmd.reda186@gmail.com'>
+                Contact Me
+              </a>
             </div>
 
             {/* Highlights grid */}

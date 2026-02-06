@@ -1,53 +1,51 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
+import type { Metadata } from 'next';
+import localFont from 'next/font/local';
+import './globals.css';
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+  src: './fonts/GeistVF.woff',
+  variable: '--font-geist-sans',
+  weight: '100 900',
 });
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+  src: './fonts/GeistMonoVF.woff',
+  variable: '--font-geist-mono',
+  weight: '100 900',
 });
 
 export const metadata: Metadata = {
-  title: "Mohamed Reda | Senior Frontend Engineer",
+  title: 'Mohamed Reda | Senior Frontend Engineer',
   description:
-    "Senior Frontend Engineer with 4+ years of experience building scalable, high-performance web applications. Expert in React, TypeScript, and modern component-based architectures.",
+    'Senior Frontend Engineer with 4+ years of experience building scalable, high-performance web applications. Expert in React, TypeScript, and modern component-based architectures.',
   keywords: [
-    "Frontend Engineer",
-    "React Developer",
-    "TypeScript",
-    "Next.js",
-    "Web Developer",
-    "UI/UX",
-    "Senior Developer",
-    "Mohamed Reda",
+    'Frontend Engineer',
+    'React Developer',
+    'TypeScript',
+    'Next.js',
+    'Web Developer',
+    'UI/UX',
+    'Senior Developer',
+    'Mohamed Reda',
   ],
-  authors: [{ name: "Mohamed Reda Ibrahim" }],
-  creator: "Mohamed Reda Ibrahim",
+  authors: [{ name: 'Mohamed Reda Ibrahim' }],
+  creator: 'Mohamed Reda Ibrahim',
   icons: {
-    icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
-    ],
-    apple: "/favicon.svg",
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    apple: '/favicon.svg',
   },
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    title: "Mohamed Reda | Senior Frontend Engineer",
+    type: 'website',
+    locale: 'en_US',
+    title: 'Mohamed Reda | Senior Frontend Engineer',
     description:
-      "Senior Frontend Engineer building scalable, high-performance web applications with React & TypeScript.",
-    siteName: "Mohamed Reda Portfolio",
+      'Senior Frontend Engineer building scalable, high-performance web applications with React & TypeScript.',
+    siteName: 'Mohamed Reda Portfolio',
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Mohamed Reda | Senior Frontend Engineer",
+    card: 'summary_large_image',
+    title: 'Mohamed Reda | Senior Frontend Engineer',
     description:
-      "Senior Frontend Engineer building scalable, high-performance web applications with React & TypeScript.",
+      'Senior Frontend Engineer building scalable, high-performance web applications with React & TypeScript.',
   },
   robots: {
     index: true,
@@ -60,12 +58,29 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Mohamed Reda Ibrahim',
+    jobTitle: 'Senior Frontend Engineer',
+    description:
+      'Senior Frontend Engineer with 4+ years of experience building scalable, high-performance web applications. Expert in React, TypeScript, and modern component-based architectures.',
+    homeLocation: 'Cairo, Egypt',
+  };
+
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang='en' className='scroll-smooth'>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#030014] text-white`}
       >
-        {children}
+        <a href='#main-content' className='skip-link'>
+          Skip to content
+        </a>
+        <main id='main-content'>{children}</main>
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </body>
     </html>
   );
